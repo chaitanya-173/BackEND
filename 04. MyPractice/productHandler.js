@@ -21,6 +21,7 @@ const productHandler = (req, res) => {
     `);
     return res.end();
   })
+  
 }
 
 exports.productHandler = productHandler;
