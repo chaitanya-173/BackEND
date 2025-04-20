@@ -1,0 +1,30 @@
+[
+  {
+    "houseName": "Utsav",
+    "price": "1299",
+    "location": "Ghaziabad",
+    "rating": "4",
+    "photoUrl": "asdf"
+  },
+  {
+    "houseName": "Jannat",
+    "price": "999",
+    "location": "Noida",
+    "rating": "5",
+    "photoUrl": "qwer"
+  },
+  {
+    "houseName": "Mannat",
+    "price": "8000",
+    "location": "Mumbai",
+    "rating": "7",
+    "photoUrl": "etc"
+  },
+  {
+    "houseName": "Varkala",
+    "price": "1899",
+    "location": "Goa",
+    "rating": "7",
+    "photoUrl": "etc"
+  }
+]
