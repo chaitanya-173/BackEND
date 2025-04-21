@@ -14,5 +14,13 @@
     "rating": "4",
     "photoUrl": "/images/house6.png",
     "id": "0.3110618897485815"
+  },
+  {
+    "houseName": "Jannat",
+    "price": "1599",
+    "location": "Goa",
+    "rating": "4.7",
+    "photoUrl": "etc",
+    "id": "0.734841050899995"
   }
 ]
