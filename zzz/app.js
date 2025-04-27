@@ -1,13 +1,14 @@
 const express = require("express");
 
 const userRouter = require("./routes/userRouter");
-const { hostRouter } = require("./routes/hostRouter");
+const hostRouter = require("./routes/hostRouter");
+const errorController = require("./controllers/errorController");
 
 const app = express();
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("views"));
+app.use(express.static("public"));
 
 // View engine setup
 app.set("view engine", "ejs");
@@ -18,9 +19,7 @@ app.use(userRouter);
 app.use("/host", hostRouter);
 
 // 404 handler
-app.use((req, res, next) => {
-  res.status(404).render("404", { pageTitle: "Page Not Found" });
-});
+app.use(errorController.pageNotFound);
 
 const port = 5000;
 app.listen(port, () => {

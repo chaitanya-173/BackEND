@@ -1,14 +1,8 @@
 const express = require("express");
 const userRouter = express.Router();
 
-// Import the registeredHomes array
-const { registeredHomes } = require("./hostRouter");
+const homesController = require("../controllers/userController");
 
-userRouter.get("/", (req, res, next) => {
-  res.render("home", {
-    pageTitle: "Airbnb Homes",
-    registeredHomes: registeredHomes,
-  });
-});
+userRouter.get("/", homesController.getHomes);
 
 module.exports = userRouter;

@@ -1,20 +1,10 @@
 const express = require("express");
 const hostRouter = express.Router();
 
-const registeredHomes = [];
+const hostController = require('../controllers/hostController');
 
-hostRouter.get("/add-home", (req, res, next) => {
-  res.render("add-home", { pageTitle: "Add Home" });
-});
-
-hostRouter.post("/add-home", (req, res, next) => {
-  registeredHomes.push(req.body);
-  console.log(req.body);
-  res.redirect("/");
-});
+hostRouter.get("/add-home", hostController.getAddHome);
+hostRouter.post("/add-home", hostController.postAddHome);
 
 // Export both the router and the homes array
-module.exports = {
-  hostRouter,
-  registeredHomes,
-};
+module.exports = hostRouter;
