@@ -30,7 +30,11 @@ module.exports = class Home {
     return db.execute("SELECT * FROM homes");
   }
 
-  static findById(homeId, callback) {}
+  static findById(homeId, callback) {
 
-  static deleteById(homeId, callback) {}
+  }
+
+  static deleteById(homeId, callback) {
+    
+  }
 };
