@@ -31,10 +31,8 @@ module.exports = class Home {
   }
 
   static findById(homeId, callback) {
-
   }
 
   static deleteById(homeId, callback) {
-    
   }
 };
