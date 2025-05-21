@@ -3,8 +3,12 @@ const path = require("path");
 
 // External Module
 const express = require("express");
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
+const DB_PATH =
+  "mongodb+srv://chaitanyachaudhary73:FGGyrjub7QrPXHNf@chaitanya-cluster.7bkyhy1.mongodb.net/airbnb?retryWrites=true&w=majority&appName=chaitanya-cluster";
 
-//Local Module
+// Local Module
 const storeRouter = require("./routes/storeRouter");
 const hostRouter = require("./routes/hostRouter");
 const authRouter = require("./routes/authRouter");
@@ -17,12 +21,24 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", "views");
 
+const store = new MongoDBStore({
+  uri: DB_PATH,
+  collection: "sessions",
+});
+
 app.use(express.urlencoded());
+app.use(
+  session({
+    secret: "NodeJS with Chaitanya",
+    resave: false,
+    saveUninitialized: true,
+    store,
+  })
+);
+
+// can replace req.isLoggedIn with req.session.isLoggedIn everywhere to avoid this middleware
 app.use((req, res, next) => {
-  console.log("Cookie check middleware", req.get("Cookie"));
-  req.isLoggedIn = req.get("Cookie")
-    ? req.get("Cookie").split("=")[1] === "true"
-    : "false";
+  req.isLoggedIn = req.session.isLoggedIn;
   next();
 });
 
@@ -42,11 +58,8 @@ app.use(express.static(path.join(rootDir, "public")));
 app.use(errorsController.pageNotFound);
 
 const PORT = 3000;
-
 mongoose
-  .connect(
-    "mongodb+srv://chaitanyachaudhary73:FGGyrjub7QrPXHNf@chaitanya-cluster.7bkyhy1.mongodb.net/airbnb?retryWrites=true&w=majority&appName=chaitanya-cluster"
-  )
+  .connect(DB_PATH)
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server running on address http://localhost:${PORT}`);
