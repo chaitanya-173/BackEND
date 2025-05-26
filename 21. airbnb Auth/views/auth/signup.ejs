@@ -1,0 +1,53 @@
+<%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+    <main class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Register as a new User</h1>
+      <form action="/signup" method="POST" class="max-w-md mx-auto">
+        <input
+          type="text"
+          name="firstname"
+          placeholder="First Name"
+          required
+          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"/>
+        <input
+          type="text"
+          name="lastname"
+          placeholder="Last Name"
+          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"/>
+        <input
+          type="email"
+          name="email"
+          placeholder="test@gmail.com"
+          required
+          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"/>
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"/>
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          required
+          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"/>
+
+        <div class="mb-3">
+          <p>UserType: </p>
+          <label><input type="radio" name="userType" value="guest" id="host" class="ml-2 mr-1" checked><span>Guest</span></label>
+          <label><input type="radio" name="userType" value="guest" id="host" class="ml-2 mr-1" checked><span>Host</span></label>
+          <br>
+        </div>
+
+        <div class="mb-4">
+          <label><input type="checkbox" name="userType" value="terms" id="terms" class="ml-2 mr-1" required><span>I agree to the terms and conditions</span></label>
+        </div>
+        
+        <input type="submit" value="Register" class="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300" />
+      </form>
+    </main>
+  </body>
+</html>
