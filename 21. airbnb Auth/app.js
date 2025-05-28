@@ -5,8 +5,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
-const DB_PATH =
-  "mongodb+srv://chaitanyachaudhary73:FGGyrjub7QrPXHNf@chaitanya-cluster.7bkyhy1.mongodb.net/airbnb?retryWrites=true&w=majority&appName=chaitanya-cluster";
+const DB_PATH ="mongodb+srv://chaitanyachaudhary73:FGGyrjub7QrPXHNf@chaitanya-cluster.7bkyhy1.mongodb.net/airbnb?retryWrites=true&w=majority&appName=chaitanya-cluster";
 
 // Local Module
 const storeRouter = require("./routes/storeRouter");
