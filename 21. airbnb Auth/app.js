@@ -29,14 +29,13 @@ const store = new MongoDBStore({
 app.use(express.urlencoded());
 app.use(
   session({
-    secret: "NodeJS with Chaitanya",
+    secret: "KnowledgeGate AI with Complete Coding",
     resave: false,
     saveUninitialized: true,
     store,
   })
 );
 
-// can replace req.isLoggedIn with req.session.isLoggedIn everywhere to avoid this middleware
 app.use((req, res, next) => {
   req.isLoggedIn = req.session.isLoggedIn;
   next();
@@ -57,10 +56,12 @@ app.use(express.static(path.join(rootDir, "public")));
 
 app.use(errorsController.pageNotFound);
 
-const PORT = 3000;
+const PORT = 3003;
+
 mongoose
   .connect(DB_PATH)
   .then(() => {
+    console.log("Connected to Mongo");
     app.listen(PORT, () => {
       console.log(`Server running on address http://localhost:${PORT}`);
     });
