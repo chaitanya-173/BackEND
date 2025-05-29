@@ -5,7 +5,8 @@ const path = require("path");
 const express = require("express");
 const { default: mongoose } = require("mongoose");
 const cors = require("cors");
-const DB_PATH = "mongodb+srv://chaitanyachaudhary73:FGGyrjub7QrPXHNf@chaitanya-cluster.7bkyhy1.mongodb.net/todo?retryWrites=true&w=majority&appName=chaitanya-cluster";
+const DB_PATH =
+  "mongodb+srv://chaitanyachaudhary73:FGGyrjub7QrPXHNf@chaitanya-cluster.7bkyhy1.mongodb.net/todo?retryWrites=true&w=majority&appName=chaitanya-cluster";
 
 //Local Module
 const todoItemsRouter = require("./routes/todoItemsRouter");
