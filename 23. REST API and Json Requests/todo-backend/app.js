@@ -8,7 +8,7 @@ const cors = require("cors");
 const DB_PATH =
   "mongodb+srv://chaitanyachaudhary73:FGGyrjub7QrPXHNf@chaitanya-cluster.7bkyhy1.mongodb.net/todo?retryWrites=true&w=majority&appName=chaitanya-cluster";
 
-//Local Module
+// Local Module
 const todoItemsRouter = require("./routes/todoItemsRouter");
 const errorsController = require("./controllers/errors");
 
